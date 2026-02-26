@@ -1,6 +1,7 @@
 {
   "name": "@lastbluetape/mcp-server",
-  "version": "1.0.0",
+  "mcpName": "io.github.vulkanr/lastbluetape-mcp",
+  "version": "1.0.1",
   "description": "MCP server for LastBlueTape — construction punch list management for AI agents",
   "type": "module",
   "bin": {

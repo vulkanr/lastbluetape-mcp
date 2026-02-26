@@ -1,0 +1,36 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.vulkanr/lastbluetape-mcp",
+  "title": "LastBlueTape",
+  "description": "Construction punch list management for AI agents. Create lists, add items, track progress.",
+  "websiteUrl": "https://lastbluetape.com/docs",
+  "repository": {
+    "url": "https://github.com/vulkanr/lastbluetape-mcp",
+    "source": "github"
+  },
+  "version": "1.0.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@lastbluetape/mcp-server",
+      "version": "1.0.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "LASTBLUETAPE_API_KEY",
+          "description": "Your LastBlueTape API key for authentication (starts with lbt_)",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "LASTBLUETAPE_PAYMENT_METHOD",
+          "description": "Optional Stripe payment method ID (pm_xxx) for auto-upgrading lists to Pro",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
