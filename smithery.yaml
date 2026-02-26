@@ -1,0 +1,22 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - LASTBLUETAPE_API_KEY
+    properties:
+      LASTBLUETAPE_API_KEY:
+        type: string
+        description: Your LastBlueTape API key (starts with lbt_)
+      LASTBLUETAPE_PAYMENT_METHOD:
+        type: string
+        description: Optional Stripe payment method ID for auto-upgrading lists
+  commandFunction: |
+    (config) => ({
+      command: "npx",
+      args: ["-y", "@lastbluetape/mcp-server"],
+      env: {
+        LASTBLUETAPE_API_KEY: config.LASTBLUETAPE_API_KEY,
+        ...(config.LASTBLUETAPE_PAYMENT_METHOD ? { LASTBLUETAPE_PAYMENT_METHOD: config.LASTBLUETAPE_PAYMENT_METHOD } : {})
+      }
+    })
